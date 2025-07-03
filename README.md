@@ -1,5 +1,4 @@
 ## Architecture: Zk Mask
----
 
 The most **ROBUST , SECURE, EFFICIENT and OPTIMIZED** solution for Zk Mask
 ### 1. Overview & Core Objective
