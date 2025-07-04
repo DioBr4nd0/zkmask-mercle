@@ -82,7 +82,7 @@ The database would be a simple map from the bucket ID to a list of commitments.
 
 #### Cons:
 
-*   **Probabilistic, Not Deterministic:** LSH is probabilistic, meaning there is a very small but non-zero chance that two similar vectors will hash to different buckets. This can lead to a **false negative**, where a matching user is not found. This can further be reduced using multiple LSH, ie. checking up to k buckets instead of once and then store the commitment in k buckets.
+*   **Probabilistic, Not Deterministic:** LSH is probabilistic, meaning there is a very small but non-zero chance that two similar vectors will hash to different buckets. This can lead to a **false negative**, where a matching user is not found. **This can further be reduced using multiple LSH, ie. checking up to k buckets instead of once and then store the commitment in k buckets**.
 *   **Tuning Complexity:** The system requires careful tuning of the number of hyperplanes and hashing tables to balance the trade-off between accuracy (avoiding false negatives) and performance (keeping buckets small).
 
 > **Summary:** The LSH approach offers a significant performance boost at the cost of introducing a probabilistic element into a security-critical system. It is an excellent option for applications where speed is paramount and a small statistical risk of error is acceptable.
