@@ -120,6 +120,7 @@ If the proof is valid, the system's state must be updated.
 
 This end-to-end process ensures that every user is verified against the entire database with the highest level of privacy and data integrity.
 
+As mentioned instead of writing the full code I have highlighted the pseudo code which is easy to understand and covers the approach end to end.
 ```rust
 // --- High-Level Pseudocode ---
 
