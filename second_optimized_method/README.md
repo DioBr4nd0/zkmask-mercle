@@ -67,7 +67,6 @@ The database would be a simple map from the bucket ID to a list of commitments.
 
 ### 4. Updated Architecture Diagram
 
-*(Assuming your `updated_architecture.png` illustrates the flow where the new vector first goes to an "LSH Hashing" module, which then queries the "LSH Buckets" database to retrieve candidate commitments for the ZK Prover.)*
 
 ![Updated LSH Architecture](./updated_architecture.png)
 
