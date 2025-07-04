@@ -246,4 +246,4 @@ The system is designed to be performant and scalable, but with specific implicat
 
 
 
-# I have also attached a second approach which works with less expensive hardware
+# I have also attached a second approach which is optimized and is less computationally intensive.
