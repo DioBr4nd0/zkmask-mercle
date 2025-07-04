@@ -16,7 +16,7 @@ This method replaces the full database scan with a targeted, probabilistic searc
 2.  **New Vector Arrives:** When a new vector `u` is submitted, we first compute its LSH bucket ID.
 3.  **Candidate Selection:** We retrieve only the `k` commitments stored in that specific bucket. These are our "most probable" matches.
 4.  **Targeted ZK Proof:** We generate a much smaller and faster ZK proof with the statement:
-    > "The new vector `u` has a cosine similarity **greater than 10%** with at least one of the `k` candidate vectors from this bucket."
+    > "The new vector `u` has a cosine similarity **greater than 10%** with the `k` most matching candidates vectors from this bucket."
 5.  **State Update:** If the proof is valid, the new user is authenticated. If this were an enrollment system, we would insert the new vector's commitment into the same LSH bucket.
 
 ---

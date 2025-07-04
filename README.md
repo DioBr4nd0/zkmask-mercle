@@ -1,6 +1,6 @@
 ## Architecture: Zk Mask
 
-The most **ROBUST , SECURE, EFFICIENT and OPTIMIZED** solution for Zk Mask
+The most **ROBUST , SECURE, EFFICIENT and OPTIMIZED** solution for Zk Mask.
 ### 1. Overview & Core Objective
 
 This document outlines the architecture for high-security biometric system. The primary goal is to verify a new user's biometric uniqueness against an entire existing user database without ever revealing the underlying biometric data of any user.
@@ -55,7 +55,7 @@ A Merkle tree provides a single, cryptographic fingerprint (the **Merkle Root**)
 - **Efficient with Bulletproofs:** Pedersen commitments are natively supported in Bulletproofs, allowing for compact, non-interactive ZK range and inner product proofs — without needing additional hash constraints or custom gadgets.
 
 Also here it explained theoritically
-![End to End Architecture](./assets/pederson.png)
+![Why Pedersen](./assets/pederson.png)
 
 > ✅ **Summary:** Pedersen commitments provide the arithmetic flexibility, proof efficiency, and mathematical guarantees we need — which Poseidon can't offer in this use case.
 
@@ -77,10 +77,10 @@ The process begins when a new user provides their biometric data. This data is h
 2.  **Normalization:** The vector's magnitude is calculated (`||u_raw||`), and each component is divided by it. This creates a **unit vector (`û`)** where `||û|| = 1`.
     *   **Reason:** This crucial step simplifies the complex `cosine similarity` calculation into a simple `dot product`, which is far more efficient for ZK circuits.
 
-    ![End to End Architecture](./assets/normalize.png)
+    ![Why Normailze](./assets/normalize.png)
 3.  **Quantization:** The floating-point numbers in `û` are converted into large integers (`u_quant`) by multiplying them by a large scaling factor (e.g., `10^6`).
     *   **Reason:** Cryptographic circuits operate on integers in a finite field, not floating-point numbers.
-    ![End to End Architecture](./assets/quantize.png)
+    ![Why Quantize](./assets/quantize.png)
 
 #### Step 2: Proof Generation (The Prover's Task)
 
@@ -244,3 +244,5 @@ The system is designed to be performant and scalable, but with specific implicat
 
 
 
+
+# I have also attached a second approach which works with less expensive hardware
