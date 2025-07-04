@@ -210,6 +210,16 @@ fn build_aggregate_circuit(
 
 ```
 
+### The Optimization: Batch Processing and Aggregate Proofs
+
+To efficiently verify a new vector against thousands of database entries, we do not generate one proof per comparison. Instead, we use an **aggregate proof** approach that combines all checks into a single cryptographic operation. This is made possible by the underlying structure of the Bulletproofs protocol.
+
+*   **Single Aggregated Circuit:** Instead of `N` small circuits, we construct one large, parallel arithmetic circuit in memory. This single circuit contains `N` sub-circuits, each enforcing the similarity logic (`dot_product < threshold`) for one of the stored vectors. The Bulletproofs algorithm is then run once on this entire aggregated circuit.
+
+*   **Logarithmic Verification Cost:** The key benefit of this approach is that the time required to verify the resulting proof does not grow linearly with the number of comparisons. Thanks to the efficiency of the inner product argument at the core of Bulletproofs, verification time scales logarithmically (`O(log N)`). This means checking against 10,000 vectors is not 10,000 times slower than checking against one, making the system highly scalable on the verifier's side.
+
+
+
 ### 4. Why Bulletproofs for ZK Proofs
 
 - **No Trusted Setup (vs. zk-SNARKs):** Unlike zk-SNARKs, which require a special setup phase that generates sensitive secret parameters, Bulletproofs need no such ceremony. This removes the risk of hidden trapdoors or long-term trust assumptions.
