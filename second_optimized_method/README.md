@@ -74,8 +74,6 @@ The database would be a simple map from the bucket ID to a list of commitments.
 
 ### 5. Pros & Cons of the LSH Approach
 
-This optimization introduces a significant trade-off between performance and security guarantees.
-
 #### Pros:
 
 *   **Massive Performance Gain:** Instead of generating a proof against 10,000+ vectors, the prover only needs to work with a handful of candidates (`k`). This dramatically reduces the computational load and makes proof generation much faster.
